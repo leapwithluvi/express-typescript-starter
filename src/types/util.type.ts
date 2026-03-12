@@ -1,6 +1,10 @@
+import { Role } from "@prisma";
+
 export interface JWTPayload {
   userId: string;
-  role?: string;
+  email: string;
+  role: Role;
+  sessionId: string;
 }
 
 export interface TokenPair {

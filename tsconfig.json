@@ -12,7 +12,7 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"],
-      "@prisma": ["generated/prisma/client"]
+      "@prisma": ["generated/prisma"]
     },
 
     // Other Outputs
@@ -35,6 +35,6 @@
     "skipLibCheck": true,
   },
   "include": ["src/**/*"],
-  // "files": ["src/types/express.d.ts"],
-  "exclude": ["node_modules/*", "generated/prisma/*", "build/*", "prisma.config.ts"]
+  "files": ["src/types/express.d.ts"],
+  "exclude": ["node_modules/*", "build/*", "prisma.config.ts"]
 }
