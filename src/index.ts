@@ -13,38 +13,38 @@ const PORT = process.env.PORT || 3000;
 const app = express();
 
 // Logger
-app.use(requestLogger)
+app.use(requestLogger);
 
 // Security
-app.use(helmet())
+app.use(helmet());
 
 // CORS
-app.use(cors(
-    {
-        origin: "*",
-        credentials: true,
-    }
-));
+app.use(
+  cors({
+    origin: "*",
+    credentials: true,
+  })
+);
 
 // Body Parser
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Rate Limiter
-app.use(rateLimiter)
+app.use(rateLimiter);
 
 // Prevent HTTP Parameter Pollution
-app.use(hpp())
+app.use(hpp());
 
 // Routes
-app.use('/api', router)
+app.use("/api", router);
 
 // Not Found Handler
-app.use(notFoundHandler)
+app.use(notFoundHandler);
 
 // Error Handler
-app.use(errorHandler)
+app.use(errorHandler);
 
 app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
+  console.log(`Server is running on port ${PORT}`);
 });
