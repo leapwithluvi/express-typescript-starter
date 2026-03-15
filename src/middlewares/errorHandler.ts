@@ -1,8 +1,9 @@
 import { Request, Response, NextFunction } from "express";
-import { JsonWebTokenError, TokenExpiredError } from "jsonwebtoken";
+import jwt from "jsonwebtoken";
+const { JsonWebTokenError, TokenExpiredError } = jwt;
 import { Prisma } from "@prisma";
 import { ZodError } from "zod";
-import { HttpException } from "@/utils/httpException";
+import { HttpException  } from "@/utils/httpException";
 
 export const errorHandler = (
   err: Error,

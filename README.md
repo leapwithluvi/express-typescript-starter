@@ -82,6 +82,7 @@ src/
 | `npm run dev`           | Starts the server in development mode with hot-reload        |
 | `npm run build`         | Compiles TypeScript into production-ready JavaScript (dist/) |
 | `npm start`             | Runs the compiled application in production mode             |
+| `npm test`              | Runs all tests using Jest                                    |
 | `npm run lint`          | Performs code quality checks using ESLint                    |
 | `npm run format`        | Automatically fixes code formatting using Prettier           |
 | `npm run prisma:studio` | Opens a graphical interface for database management          |

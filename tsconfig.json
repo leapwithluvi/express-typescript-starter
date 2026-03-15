@@ -5,10 +5,10 @@
     "outDir": "./build",
 
     // Environment Settings
-    "module": "CommonJS",
+    "module": "ESNext",
     "moduleResolution": "Node",
     "target": "esnext",
-    "types": [],
+    "types": ["jest"],
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"],

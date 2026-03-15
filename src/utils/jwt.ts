@@ -12,12 +12,12 @@ if (!JWT_SECRET || !JWT_REFRESH_SECRET || !APP_NAME || !APP_URL) {
   );
 }
 
-const ACCESS_TOKEN_EXPIRES_IN = "15m";
-const REFRESH_TOKEN_EXPIRES_IN = "7d";
+const ACCESS_TOKEN_EXPIRES_IN = process.env.JWT_ACCESS_EXPIRES_IN || "15m";
+const REFRESH_TOKEN_EXPIRES_IN = process.env.JWT_REFRESH_EXPIRES_IN || "7d";
 
 export const generateAccessToken = (payload: JWTPayload): string => {
   return jwt.sign(payload, JWT_SECRET, {
-    expiresIn: ACCESS_TOKEN_EXPIRES_IN,
+    expiresIn: ACCESS_TOKEN_EXPIRES_IN as any,
     issuer: APP_NAME,
     audience: APP_URL,
   });
@@ -25,7 +25,7 @@ export const generateAccessToken = (payload: JWTPayload): string => {
 
 export const generateRefreshToken = (payload: JWTPayload): string => {
   return jwt.sign(payload, JWT_REFRESH_SECRET, {
-    expiresIn: REFRESH_TOKEN_EXPIRES_IN,
+    expiresIn: REFRESH_TOKEN_EXPIRES_IN as any,
     issuer: APP_NAME,
     audience: APP_URL,
   });
