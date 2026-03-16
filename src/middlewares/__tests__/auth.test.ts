@@ -59,7 +59,9 @@ describe("Auth Middleware", () => {
 
   it("should return 401 if session is invalid or expired", async () => {
     mockedJwtUtils.extractTokenFromHeader.mockReturnValue("valid-token");
-    mockedJwtUtils.verifyAccessToken.mockReturnValue({ sessionId: "123" } as any);
+    mockedJwtUtils.verifyAccessToken.mockReturnValue({
+      sessionId: "123",
+    } as any);
     mockedSessionRepo.findSessionById.mockResolvedValue(null as any);
 
     await authMiddleware(
@@ -75,13 +77,15 @@ describe("Auth Middleware", () => {
   });
 
   it("should proceed to next() and set res.locals if valid", async () => {
-    const mockSession = { 
-      user: { id: "u1" }, 
-      expiresAt: new Date(Date.now() + 10000) 
+    const mockSession = {
+      user: { id: "u1" },
+      expiresAt: new Date(Date.now() + 10000),
     };
-    
+
     mockedJwtUtils.extractTokenFromHeader.mockReturnValue("valid-token");
-    mockedJwtUtils.verifyAccessToken.mockReturnValue({ sessionId: "123" } as any);
+    mockedJwtUtils.verifyAccessToken.mockReturnValue({
+      sessionId: "123",
+    } as any);
     mockedSessionRepo.findSessionById.mockResolvedValue(mockSession as any);
 
     await authMiddleware(

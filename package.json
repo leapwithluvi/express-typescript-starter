@@ -12,8 +12,8 @@
     "prisma:generate": "prisma generate",
     "prisma:migrate": "prisma migrate dev",
     "prisma:studio": "prisma studio",
-    "lint": "eslint . --ext .ts",
-    "lint:fix": "eslint . --ext .ts --fix",
+    "lint": "eslint src prisma jest.config.ts jest.setup.ts prisma.config.ts",
+    "lint:fix": "eslint src prisma jest.config.ts jest.setup.ts prisma.config.ts --fix",
     "format": "prettier --write ."
   },
   "repository": {
