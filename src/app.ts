@@ -5,6 +5,8 @@ import { requestLogger } from "@/middlewares/requestLogger";
 import router from "@/routers/routes";
 import { rateLimiter } from "@/middlewares/rateLimiter";
 import hpp from "hpp";
+import swaggerUi from "swagger-ui-express";
+import swaggerSpec from "@/configs/swagger";
 import { errorHandler } from "./middlewares/errorHandler";
 import { notFoundHandler } from "./middlewares/notFoundHandler";
 
@@ -33,6 +35,22 @@ app.use(rateLimiter);
 
 // Prevent HTTP Parameter Pollution
 app.use(hpp());
+
+/**
+ * @openapi
+ * /health:
+ *   get:
+ *     summary: Check system health
+ *     tags: [System]
+ *     description: Returns 200 if all services (database, memory) are healthy, 503 otherwise.
+ *     responses:
+ *       200:
+ *         description: System is healthy
+ *       503:
+ *         description: System is unhealthy
+ */
+// Swagger Documentation
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 // Routes
 app.use("/api", router);

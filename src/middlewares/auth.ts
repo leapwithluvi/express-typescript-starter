@@ -3,6 +3,11 @@ import { Request, Response, NextFunction } from "express";
 import { extractTokenFromHeader, verifyAccessToken } from "@/utils/jwt";
 import { findSessionById } from "@/repositories/session.repository";
 
+/**
+ * AUTHENTICATION MIDDLEWARE
+ * Protects routes by verifying the JWT access token in the Authorization header.
+ * Attaches the user and session to res.locals for downstream use.
+ */
 export const authMiddleware = async (
   req: Request,
   res: Response,

@@ -1,5 +1,10 @@
 import rateLimit from "express-rate-limit";
 
+/**
+ * RATE LIMITER MIDDLEWARE
+ * Prevents brute-force attacks and abuse by limiting the number of requests 
+ * from a single IP address within a specific time window.
+ */
 export const rateLimiter = rateLimit({
   windowMs: parseInt(process.env.RATE_LIMIT_WINDOW_MS || "900000"), // Default: 15 minutes
   max: parseInt(process.env.RATE_LIMIT_MAX || "100"), // Default: 100 requests per window

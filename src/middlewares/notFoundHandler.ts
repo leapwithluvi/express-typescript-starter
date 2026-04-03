@@ -1,5 +1,9 @@
 import { Request, Response, NextFunction } from "express";
 
+/**
+ * 404 NOT FOUND HANDLER
+ * This middleware is called when no route matches the incoming request.
+ */
 export const notFoundHandler = (
   req: Request,
   res: Response,

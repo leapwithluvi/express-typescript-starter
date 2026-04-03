@@ -1,3 +1,8 @@
+/**
+ * JWT UTILITY
+ * Handles creation, verification, and extraction of JSON Web Tokens (Access and Refresh).
+ * Ensures secure authentication and session management.
+ */
 import jwt from "jsonwebtoken";
 import { JWTPayload, TokenPair } from "@/types/util.type";
 

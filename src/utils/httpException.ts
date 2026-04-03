@@ -1,3 +1,8 @@
+/**
+ * CUSTOM HTTP EXCEPTION
+ * Extends the built-in Error class to include an HTTP status code 
+ * and optional validation errors.
+ */
 export class HttpException extends Error {
   statusCode: number;
   errors?: any;

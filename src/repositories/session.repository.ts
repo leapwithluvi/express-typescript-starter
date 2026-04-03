@@ -1,3 +1,8 @@
+/**
+ * SESSION REPOSITORY
+ * Provides an abstraction layer for performing CRUD operations on User Sessions
+ * in the database using the Prisma client.
+ */
 import { prisma } from "@/configs/prisma";
 import { CreateSessionData, UpdateSessionData } from "@/types/session.type";
 

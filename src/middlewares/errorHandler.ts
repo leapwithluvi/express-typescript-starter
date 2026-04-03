@@ -5,6 +5,12 @@ import { Prisma } from "@prisma";
 import { ZodError } from "zod";
 import { HttpException } from "@/utils/httpException";
 
+/**
+ * GLOBAL ERROR HANDLER
+ * This middleware catches all errors throughout the application Lifecycle.
+ * It formats errors from various sources (Zod, Prisma, JWT, etc.) into a 
+ * consistent JSON response for the client and logs the details for debugging.
+ */
 export const errorHandler = (
   err: Error,
   req: Request,

@@ -1,6 +1,11 @@
 import { Request, Response, NextFunction } from "express";
 import { ZodSchema } from "zod";
 
+/**
+ * REQUEST VALIDATION MIDDLEWARE
+ * High-order function that returns a middleware to validate 
+ * the request body, query, and params against a Zod schema.
+ */
 export const validateRequest =
   (schema: ZodSchema) =>
   async (req: Request, res: Response, next: NextFunction) => {

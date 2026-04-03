@@ -1,100 +1,189 @@
-# Express TypeScript Starter
+# 🚀 Express TypeScript Starter (v1.0.0)
 
-Express TypeScript Starter is a robust boilerplate designed for building scalable RESTful APIs using Express.js 5, TypeScript, and Prisma ORM. This project is pre-configured with industry-standard security practices, strict data validation, and a clean architectural structure to accelerate the backend development process.
+<!-- GitHub badges -->
+[![Stars](https://img.shields.io/github/stars/leapwithluvi/express-typescript-starter?style=social)](https://github.com/leapwithluvi/express-typescript-starter/stargazers)
+[![Fork](https://img.shields.io/github/forks/leapwithluvi/express-typescript-starter?style=social)](https://github.com/leapwithluvi/express-typescript-starter/forks)
+[![GitHub commits](https://img.shields.io/github/commit-activity/t/leapwithluvi/express-typescript-starter?style=social&logo=github)](https://github.com/leapwithluvi/express-typescript-starter/commits)
+[![Pull requests](https://img.shields.io/github/issues-pr/leapwithluvi/express-typescript-starter?style=social&logo=github)](https://github.com/leapwithluvi/express-typescript-starter/pulls)
 
-## Key Features
+![Express TypeScript Starter](https://img.freepik.com/free-vector/abstract-technology-particle-background_23-2148426649.jpg?w=1000)
 
-- **Express 5**: Leverages the latest version of the Express framework for improved performance and modern features.
-- **TypeScript**: Full static typing implementation to minimize runtime errors and enhance code self-documentation.
-- **Prisma ORM**: Modern database toolkit for type-safe schema management and querying.
-- **Zod Validation**: Schema-based validation at the entry point level to ensure data integrity.
-- **Authentication System**: JSON Web Token (JWT) implementation supporting both Access Tokens and Refresh Tokens.
-- **Layered Security**:
-  - Helmet for HTTP header protection.
-  - HPP (HTTP Parameter Pollution) to prevent parameter manipulation.
-  - Express Rate Limit to mitigate brute force attacks and basic DDoS protection.
-  - Configurable CORS (Cross-Origin Resource Sharing).
-- **Centralized Logging**: Integrated Pino Logger for efficient and structured application logging.
-- **Unified Error Handling**: Dedicated middleware for global error management and 404 (Not Found) route handling.
+[![leapwithluvi](https://custom-icon-badges.demolab.com/badge/made%20by%20-leapwithluvi-556bf2?logo=github&logoColor=white&labelColor=101827)](https://github.com/leapwithluvi)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg?color=dddddd&labelColor=000000)](https://github.com/leapwithluvi/express-typescript-starter/blob/main/LICENSE)
+[![Top Language](https://img.shields.io/github/languages/top/leapwithluvi/express-typescript-starter?logo=github&logoColor=%23007ACC&label=TypeScript)](https://www.typescriptlang.org/)
+![PRs](https://img.shields.io/badge/PRs-welcome-ff69b4.svg?style=shields)
+![Status](https://img.shields.io/badge/Status-Production--Ready-success)
 
-## Project Architecture
+## 📖 Table of Contents
 
-This project follows a layered architecture pattern to ensure clear separation of concerns:
+<details><summary>Table of Contents</summary>
 
-```text
+- [Description](#-description)
+- [Key Features](#-key-features)
+- [Folder Structure](#-folder-structure)
+- [Technologies Used](#-technologies-used)
+- [Get Started](#-get-started)
+  - [Prerequisites](#-prerequisites)
+  - [Installation](#-installation)
+  - [Run Locally](#-run-locally)
+- [Scripts](#-scripts)
+- [Environment Variables](#-environment-variables)
+- [Health & Monitoring](#-health--monitoring)
+- [Contributing](#-contributing)
+- [License](#-license)
+
+</details>
+
+## 📝 Description
+
+**Express TypeScript Starter** is a premium, production-ready boilerplate designed for building scalable and robust RESTful APIs. It combines the power of **Express 5**, **TypeScript**, and **Prisma ORM** with a strict focus on security, observability, and clean architecture.
+
+Whether you're building a small service or a complex enterprise application, this starter provides the foundation you need to launch with confidence.
+
+## ✨ Key Features
+
+- **🛡️ Enhanced Security**: Pre-configured with Helmet, HPP, CORS, and Rate Limiting.
+- **⚡ Performance**: Built on Express 5 with optimized asynchronous handling.
+- **🦾 Strict Validation**: Zod-based validation for request bodies, params, and even environment variables at startup.
+- **🔄 Lifecycle Management**: Graceful shutdown and health monitoring integrated via `@godaddy/terminus`.
+- **📊 Observable Logging**: Structured JSON logging using **Pino** and `pino-http`.
+- **🏗️ Layered Architecture**: Clean separation of concerns (Controllers, Services, Repositories).
+- **🧪 Testing Ready**: Pre-configured with **Jest** for unit and integration testing.
+
+## 📂 Folder Structure
+
+<details><summary><b>Project Layout</b></summary>
+
+```bash
 src/
-├── config/         # Environment configurations and external module settings
-├── controllers/    # Orchestration logic for HTTP requests and responses
-├── middlewares/    # Interceptor functions executed before controller logic
-├── repositories/   # Abstraction layer for database access (Prisma)
-├── routers/        # API route definitions and controller mapping
+├── __tests__/      # Automated unit and integration tests (Jest)
+├── checks/         # System health monitoring (Database, Memory)
+├── configs/        # Centralized configurations (Env, Logger, Prisma)
+├── controllers/    # Request orchestration and HTTP logic
+├── middlewares/    # Security, Auth, Logging and Error handlers
+├── repositories/   # Data access layer (Prisma abstraction)
+├── routers/        # API endpoint definitions
 ├── services/       # Core business logic implementation
-├── types/          # TypeScript interface and type definitions
-├── utils/          # Helper functions and general utilities
-├── validations/    # Data validation schemas using Zod
-└── index.ts        # Main application entry point
+├── types/          # TypeScript interfaces and shared types
+├── utils/          # Global utility functions (JWT, Formatters)
+├── validations/    # Zod schemas for request validation
+└── index.ts        # Main entry point with Terminus integration
 ```
 
-## System Requirements
+</details>
 
-- Node.js version 18 or higher
-- PostgreSQL (or any other database supported by Prisma)
-- NPM or Yarn package manager
+## ✨ Technologies Used
 
-## Installation Guide
+<details><summary>This project is built using the following premium stack:</summary>
 
-1. **Clone the Repository**
+- [TypeScript](https://www.typescriptlang.org/): A typed superset of JavaScript for rock-solid code.
+- [Express 5](https://expressjs.com/): The legendary web framework, updated for the future.
+- [Prisma](https://www.prisma.io/): Next-generation Node.js and TypeScript ORM.
+- [PostgreSQL](https://www.postgresql.org/): The world's most advanced open-source database.
+- [Zod](https://zod.dev/): TypeScript-first schema declaration and validation.
+- [Pino](https://getpino.io/): Super fast, low-overhead Node.js logger.
+- [Terminus](https://github.com/godaddy/terminus): Graceful shutdown and health checks for Node.js.
+- [Jest](https://jestjs.io/): Delightful JavaScript Testing Framework.
+- [Helmet](https://helmetjs.github.io/): Secure Express apps by setting various HTTP headers.
 
-   ```bash
-   git clone https://github.com/leapwithluvi/express-typescript-starter.git
-   cd express-typescript-starter
-   ```
+</details><br/>
 
-2. **Install Dependencies**
+[![Technologies Used](https://skillicons.dev/icons?i=ts,nodejs,express,prisma,postgres)](https://skillicons.dev)
 
-   ```bash
-   npm install
-   ```
+## 🧰 Get Started
 
-3. **Environment Configuration**
-   Copy the provided environment template and adjust the variables (such as `DATABASE_URL` and `JWT_SECRET`):
+Follow these steps to get your project running locally.
 
-   ```bash
-   cp .env.example .env
-   ```
+### 📋 Prerequisites
 
-4. **Initialize Database**
-   Run the migrations to synchronize your database schema:
+- **Node.js** (v18+)
+- **PostgreSQL** (running instance)
+- **NPM** or **Yarn**
 
-   ```bash
-   npx prisma migrate dev
-   ```
+### ⚙️ Installation
 
-5. **Generate Prisma Client**
-   ```bash
-   npm run prisma:generate
-   ```
+**Step 1: Clone the Repo**
 
-## Development Commands
+```bash
+git clone https://github.com/leapwithluvi/express-typescript-starter.git
+cd express-typescript-starter
+```
 
-| Command                 | Description                                                  |
-| ----------------------- | ------------------------------------------------------------ |
-| `npm run dev`           | Starts the server in development mode with hot-reload        |
-| `npm run build`         | Compiles TypeScript into production-ready JavaScript (dist/) |
-| `npm start`             | Runs the compiled application in production mode             |
-| `npm test`              | Runs all tests using Jest                                    |
-| `npm run lint`          | Performs code quality checks using ESLint                    |
-| `npm run format`        | Automatically fixes code formatting using Prettier           |
-| `npm run prisma:studio` | Opens a graphical interface for database management          |
+**Step 2: Install Dependencies**
 
-## Security Standards
+```bash
+npm install
+```
 
-This application comes pre-configured with several industry-standard security middlewares to ensure the API remains protected against common web threats. It is highly recommended to review the `cors` and `rateLimit` configurations in the `src/middlewares/` directory before deploying to a production environment.
+**Step 3: Setup Environment**
 
-## Contribution
+```bash
+cp .env.example .env
+# Edit .env with your DATABASE_URL and JWT secrets
+```
 
-Contributions are welcome to improve this project. Please ensure that you follow the existing naming conventions and provide a clear description with every pull request.
+**Step 4: Database Migration**
 
-## License
+```bash
+npx prisma migrate dev
+```
 
-This project is distributed under the ISC License. Please refer to the [LICENSE](LICENSE) file for more information.
+### 🚀 Run Locally
+
+```bash
+# Development mode with hot-reload
+npm run dev
+
+# Production build
+npm run build
+npm start
+```
+
+## 📜 Scripts
+
+| Script             | Action                                           |
+| :----------------- | :----------------------------------------------- |
+| `npm run dev`      | Starts local dev server with `tsx watch`         |
+| `npm run build`    | Compiles TS to production JS (`dist/`)           |
+| `npm start`        | Runs the production build                        |
+| `npm test`         | Executes tests using Jest                        |
+| `npm run lint`     | Runs ESLint for code quality                     |
+| `npm run prisma:generate` | Generates the Prisma client               |
+
+## 🔒 Environment Variables
+
+The application uses **strict validation**—if these are missing or invalid, the app will refuse to start.
+
+```env
+DATABASE_URL="postgresql://user:pass@localhost:5432/db"
+PORT=3000
+NODE_ENV="development" # or "production"
+
+# JWT
+JWT_SECRET="your-super-secret"
+JWT_REFRESH_SECRET="your-refresh-secret"
+JWT_ACCESS_EXPIRES_IN="15m"
+JWT_REFRESH_EXPIRES_IN="7d"
+
+# Rate Limiting
+RATE_LIMIT_WINDOW_MS=900000
+RATE_LIMIT_MAX=100
+```
+
+## 🏥 Health & Monitoring
+
+The API provides a built-in health check endpoint managed by **Terminus**:
+
+- **Endpoint**: `GET /health`
+- **Checks**:
+    - **Database**: Verifies connectivity to PostgreSQL.
+    - **Memory**: Monitors Heap and RSS usage against thresholds.
+
+If any check fails, the endpoint returns a `503 Service Unavailable` with detailed error info.
+
+## 📋 License
+
+This project is open-source and licensed under the **MIT License**. See [LICENSE](LICENSE) for more details.
+
+---
+Made by [leapwithluvi](https://github.com/leapwithluvi)

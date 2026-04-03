@@ -1,5 +1,8 @@
 import { Response } from "express";
 
+/**
+ * STANDARDIZED API SUCCESS RESPONSE
+ */
 export const responseSuccess = <T>(
   res: Response,
   message: string,
@@ -14,6 +17,9 @@ export const responseSuccess = <T>(
   });
 };
 
+/**
+ * STANDARDIZED API ERROR RESPONSE
+ */
 export const responseError = <T>(
   res: Response,
   message: string,
