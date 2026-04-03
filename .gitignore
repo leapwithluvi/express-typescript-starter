@@ -13,3 +13,10 @@ dist
 .env
 /generated/prisma
 /generated/prisma
+
+# TODO
+TODO.md
+
+# Logs
+*.log
+server.log

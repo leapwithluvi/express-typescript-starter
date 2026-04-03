@@ -1,4 +1,4 @@
-import { prisma } from "@/config/prisma";
+import { prisma } from "@/configs/prisma";
 import { Prisma } from "@prisma";
 
 export const findUserByEmail = async (email: string) => {

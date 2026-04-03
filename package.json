@@ -28,6 +28,7 @@
   },
   "homepage": "https://github.com/leapwithluvi/express-typescript-starter#readme",
   "dependencies": {
+    "@godaddy/terminus": "^4.12.1",
     "@prisma/adapter-pg": "^7.5.0",
     "@prisma/client": "^7.5.0",
     "bcryptjs": "^3.0.3",

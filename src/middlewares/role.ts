@@ -1,17 +1,25 @@
-import { Request, Response, NextFunction } from "express";
 import { Role } from "@prisma";
+import { Request, Response, NextFunction } from "express";
 
-export const authorizeRoles = (roles: Role[]) => {
+/**
+ * Middleware to restrict access based on user roles.
+ * Must be used after authMiddleware as it relies on res.locals.user.
+ * 
+ * @param allowedRoles Array of roles that are allowed to access the route
+ */
+export const roleMiddleware = (allowedRoles: Role[]) => {
   return (req: Request, res: Response, next: NextFunction) => {
-    if (!req.user) {
+    const user = res.locals.user;
+
+    if (!user) {
       return res.status(401).json({
-        message: "Unauthorized",
+        message: "Unauthorized: User not found in session",
       });
     }
 
-    if (!roles.includes(req.user.role)) {
+    if (!allowedRoles.includes(user.role)) {
       return res.status(403).json({
-        message: "Forbidden",
+        message: `Forbidden: This action requires one of the following roles: ${allowedRoles.join(", ")}`,
       });
     }
     next();

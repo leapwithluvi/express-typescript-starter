@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import pinoHttp from "pino-http";
-import { logger } from "@/config/logger";
+import { logger } from "@/configs/logger";
 import crypto from "crypto";
 
 export const requestLogger = pinoHttp({

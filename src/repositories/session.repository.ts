@@ -1,4 +1,4 @@
-import { prisma } from "@/config/prisma";
+import { prisma } from "@/configs/prisma";
 import { CreateSessionData, UpdateSessionData } from "@/types/session.type";
 
 const userSelect = {
