@@ -7,14 +7,14 @@ import {
 } from "../jwt";
 
 describe("JWT Utility", () => {
-  const payload = { id: "user-123", email: "test@example.com", role: ["USER"] };
+  const payload = { userId: "user-123", email: "test@example.com", role: ["USER"] };
 
   describe("AccessToken", () => {
     it("should generate and verify a valid access token", () => {
       const token = generateAccessToken(payload as any);
       const decoded = verifyAccessToken(token);
 
-      expect(decoded.id).toBe(payload.id);
+      expect(decoded.userId).toBe(payload.userId);
       expect(decoded.email).toBe(payload.email);
     });
   });
@@ -24,7 +24,7 @@ describe("JWT Utility", () => {
       const token = generateRefreshToken(payload as any);
       const decoded = verifyRefreshToken(token);
 
-      expect(decoded.id).toBe(payload.id);
+      expect(decoded.userId).toBe(payload.userId);
     });
   });
 
