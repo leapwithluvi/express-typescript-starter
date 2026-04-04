@@ -6,7 +6,7 @@
 [![GitHub commits](https://img.shields.io/github/commit-activity/t/leapwithluvi/express-typescript-starter?style=social&logo=github)](https://github.com/leapwithluvi/express-typescript-starter/commits)
 [![Pull requests](https://img.shields.io/github/issues-pr/leapwithluvi/express-typescript-starter?style=social&logo=github)](https://github.com/leapwithluvi/express-typescript-starter/pulls)
 
-![Express TypeScript Starter](https://img.freepik.com/free-vector/abstract-technology-particle-background_23-2148426649.jpg?w=1000)
+![Express TypeScript Starter](./src/images/thumbnail.png)
 
 [![leapwithluvi](https://custom-icon-badges.demolab.com/badge/made%20by%20-leapwithluvi-556bf2?logo=github&logoColor=white&labelColor=101827)](https://github.com/leapwithluvi)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?color=dddddd&labelColor=000000)](https://github.com/leapwithluvi/express-typescript-starter/blob/main/LICENSE)
