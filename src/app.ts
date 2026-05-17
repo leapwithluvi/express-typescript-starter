@@ -36,19 +36,18 @@ app.use(rateLimiter);
 // Prevent HTTP Parameter Pollution
 app.use(hpp());
 
-/**
- * @openapi
- * /health:
- *   get:
- *     summary: Check system health
- *     tags: [System]
- *     description: Returns 200 if all services (database, memory) are healthy, 503 otherwise.
- *     responses:
- *       200:
- *         description: System is healthy
- *       503:
- *         description: System is unhealthy
- */
+  @openapi
+  /health:
+    get:
+      summary: Check system health
+      tags: [System]
+      description: Returns 200 if all services (database, memory) are healthy, 503 otherwise.
+      responses:
+        200:
+          description: System is healthy
+        503:
+          description: System is unhealthy
+ 
 // Swagger Documentation
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
